@@ -1,7 +1,8 @@
+// Header.jsx
 import { Moon, Sun, Droplets, TreePine, Sunset } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import ThemeSelector from './ThemeSelector';
-import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 const themeIcons = {
   light: Sun,
@@ -13,8 +14,15 @@ const themeIcons = {
 
 export default function Header() {
   const { currentTheme, themeName } = useTheme();
-  const [activePage, setActivePage] = useState('Home');
   const IconComponent = themeIcons[themeName];
+  
+  // Navigation items configuration
+  const navItems = [
+    { name: 'Home', path: '/' },
+    { name: 'About', path: '/about' },
+    { name: 'Features', path: '/features' },
+    { name: 'Contact', path: '/contact' },
+  ];
 
   return (
     <header 
@@ -60,36 +68,29 @@ export default function Header() {
           </div>
 
           <nav className="hidden md:flex items-center space-x-8">
-            {['Home', 'About', 'Features', 'Contact'].map((item) => (
-              <button
-                key={item}
-                onClick={() => setActivePage(item)}
-                className={`transition-all duration-300 hover:scale-105 px-3 py-2 rounded-md text-sm font-medium ${
-                  activePage === item ? 'font-bold' : ''
-                }`}
-                style={{ 
-                  color: activePage === item 
+            {navItems.map((item) => (
+              <NavLink
+                key={item.name}
+                to={item.path}
+                className={({ isActive }) => 
+                  `transition-all duration-300 hover:scale-105 px-3 py-2 rounded-md text-sm font-medium ${
+                    isActive ? 'font-bold' : ''
+                  }`
+                }
+                style={({ isActive }) => ({ 
+                  color: isActive 
                     ? currentTheme.colors.primary 
                     : currentTheme.colors.textSecondary,
                   fontFamily: currentTheme.typography.fontFamily,
                   fontSize: currentTheme.typography.fontSizeBase,
-                  backgroundColor: activePage === item 
+                  backgroundColor: isActive 
                     ? currentTheme.colors.surfaceSecondary
-                    : 'transparent'
-                }}
-                onMouseEnter={(e) => {
-                  if (activePage !== item) {
-                    e.currentTarget.style.color = currentTheme.colors.primary;
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  if (activePage !== item) {
-                    e.currentTarget.style.color = currentTheme.colors.textSecondary;
-                  }
-                }}
+                    : 'transparent',
+                  textDecoration: 'none'
+                })}
               >
-                {item}
-              </button>
+                {item.name}
+              </NavLink>
             ))}
           </nav>
 
