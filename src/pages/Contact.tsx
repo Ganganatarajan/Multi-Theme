@@ -8,19 +8,19 @@ export default function ContactPage() {
     {
       icon: Mail,
       title: "Email Us",
-      value: "contact@themeswitcher.com",
-      action: "mailto:contact@themeswitcher.com"
+      value: "ganganatarajan@outlook.com",
+      action: "ganganatarajan@outlook.com"
     },
     {
       icon: Phone,
       title: "Call Us",
-      value: "+1 (555) 123-4567",
-      action: "tel:+15551234567"
+      value: "1234567899",
+      action: "tel:7854000000"
     },
     {
       icon: MapPin,
       title: "Visit Us",
-      value: "123 Theme Street, Design City",
+      value: "123 Chennai",
       action: "#"
     }
   ];
