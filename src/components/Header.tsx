@@ -1,4 +1,3 @@
-// Header.jsx
 import { Moon, Sun, Droplets, TreePine, Sunset } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import ThemeSelector from './ThemeSelector';
@@ -15,8 +14,6 @@ const themeIcons = {
 export default function Header() {
   const { currentTheme, themeName } = useTheme();
   const IconComponent = themeIcons[themeName];
-  
-  // Navigation items configuration
   const navItems = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
