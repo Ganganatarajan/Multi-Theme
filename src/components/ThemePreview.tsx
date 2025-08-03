@@ -20,7 +20,6 @@ export default function ThemePreview({ theme, isActive, onClick }: ThemePreviewP
         transform: isActive ? 'scale(1.02)' : 'none'
       }}
     >
-      {/* Theme Color Palette */}
       <div className="flex space-x-2 mb-4">
         <div 
           className="w-4 h-4 rounded-full"
@@ -35,8 +34,6 @@ export default function ThemePreview({ theme, isActive, onClick }: ThemePreviewP
           style={{ backgroundColor: theme.colors.accent }}
         />
       </div>
-
-      {/* Theme Name */}
       <h3 
         className="text-lg font-semibold mb-2 transition-colors duration-300"
         style={{ 
@@ -46,8 +43,6 @@ export default function ThemePreview({ theme, isActive, onClick }: ThemePreviewP
       >
         {theme.label}
       </h3>
-
-      {/* Sample Content */}
       <div 
         className="mb-3 transition-colors duration-300"
         style={{ 
@@ -58,8 +53,6 @@ export default function ThemePreview({ theme, isActive, onClick }: ThemePreviewP
       >
         Experience the {theme.label.toLowerCase()} theme with carefully crafted color combinations.
       </div>
-
-      {/* Sample Button */}
       <div
         className="inline-flex px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300"
         style={{
@@ -70,8 +63,6 @@ export default function ThemePreview({ theme, isActive, onClick }: ThemePreviewP
       >
         Try {theme.label}
       </div>
-
-      {/* Active Indicator */}
       {isActive && (
         <div 
           className="absolute top-4 right-4 w-3 h-3 rounded-full animate-pulse"

@@ -42,7 +42,6 @@ export default function MainContent() {
       className="min-h-screen transition-colors duration-300"
       style={{ backgroundColor: currentTheme.colors.background }}
     >
-      {/* Hero Section */}
       <section className="pt-16 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -66,8 +65,6 @@ export default function MainContent() {
               Choose from multiple themes and watch the magic happen.
             </p>
           </div>
-
-          {/* Stats Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
             {stats.map((stat) => (
               <StatCard key={stat.label} {...stat} />
@@ -75,8 +72,6 @@ export default function MainContent() {
           </div>
         </div>
       </section>
-
-      {/* Theme Previews */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -106,8 +101,6 @@ export default function MainContent() {
           </div>
         </div>
       </section>
-
-      {/* Features Section */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -136,8 +129,6 @@ export default function MainContent() {
           </div>
         </div>
       </section>
-
-      {/* Interactive Demo */}
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div 

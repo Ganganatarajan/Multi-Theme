@@ -31,31 +31,22 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
 
   useEffect(() => {
     const root = document.documentElement;
-    
-    // Apply CSS custom properties
     Object.entries(currentTheme.colors).forEach(([key, value]) => {
       root.style.setProperty(`--color-${key}`, value);
     });
-    
-    // Apply typography
     root.style.setProperty('--font-family', currentTheme.typography.fontFamily);
     root.style.setProperty('--font-size-base', currentTheme.typography.fontSizeBase);
     root.style.setProperty('--line-height', currentTheme.typography.lineHeight);
     root.style.setProperty('--heading-weight', currentTheme.typography.headingWeight.toString());
-    
-    // Apply spacing
     root.style.setProperty('--spacing-unit', `${currentTheme.spacing.unit}rem`);
     root.style.setProperty('--section-padding', currentTheme.spacing.sectionPadding);
     root.style.setProperty('--card-padding', currentTheme.spacing.cardPadding);
     root.style.setProperty('--element-spacing', currentTheme.spacing.elementSpacing);
-    
-    // Apply layout
     root.style.setProperty('--border-radius', currentTheme.layout.borderRadius);
     root.style.setProperty('--border-width', currentTheme.layout.borderWidth);
     root.style.setProperty('--max-width', currentTheme.layout.maxWidth);
     root.style.setProperty('--card-shadow', currentTheme.layout.cardShadow);
-    
-    // Apply to body
+
     document.body.style.fontFamily = currentTheme.typography.fontFamily;
     document.body.style.fontSize = currentTheme.typography.fontSizeBase;
     document.body.style.lineHeight = currentTheme.typography.lineHeight;

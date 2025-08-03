@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom CSS Variables for Themes */
 :root {
   --color-primary: #3B82F6;
   --color-secondary: #8B5CF6;
@@ -21,7 +20,6 @@
   --color-info: #3B82F6;
 }
 
-/* Base Styles */
 * {
   box-sizing: border-box;
 }
@@ -33,12 +31,10 @@ body {
   line-height: 1.6;
 }
 
-/* Smooth Scrolling */
 html {
   scroll-behavior: smooth;
 }
 
-/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -56,14 +52,12 @@ html {
   background: var(--color-text-muted);
 }
 
-/* Focus Styles */
 button:focus,
 a:focus {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
-/* Animation Classes */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -92,13 +86,11 @@ a:focus {
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-/* Backdrop Blur Support */
 .backdrop-blur-md {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
 
-/* Glass Effect */
 .glass {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
@@ -106,20 +98,17 @@ a:focus {
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Dark theme glass effect */
 [data-theme="dark"] .glass {
   background: rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Transition for Theme Changes */
 * {
   transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 300ms;
 }
 
-/* Reduce motion for accessibility */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -131,12 +120,10 @@ a:focus {
   }
 }
 
-/* Loading States */
 .loading {
   animation: pulse 1.5s ease-in-out infinite;
 }
 
-/* Hover Effects */
 .hover-lift {
   transition: transform 0.2s ease-in-out;
 }
@@ -145,7 +132,6 @@ a:focus {
   transform: translateY(-2px);
 }
 
-/* Grid Layouts */
 .grid-auto-fit {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
@@ -154,7 +140,6 @@ a:focus {
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 }
 
-/* Typography */
 .text-gradient {
   background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
   -webkit-background-clip: text;
@@ -162,7 +147,6 @@ a:focus {
   background-clip: text;
 }
 
-/* Shadow Utilities */
 .shadow-theme {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
@@ -171,7 +155,6 @@ a:focus {
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
-/* Button Variants */
 .btn-primary {
   background-color: var(--color-primary);
   color: white;
@@ -212,14 +195,10 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-weight: var(--heading-weight);
 }
-
-/* Use custom layout values globally */
 .container {
   max-width: var(--max-width);
   padding: var(--section-padding);
 }
-
-/* Apply card shadow and radius globally */
 .card {
   border-radius: var(--border-radius);
   box-shadow: var(--card-shadow);

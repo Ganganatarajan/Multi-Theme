@@ -1,4 +1,4 @@
-import { useState } from 'react'; // Import useState properly
+import { useState } from 'react'; 
 import { ChevronDown, Moon, Sun, Droplets, TreePine, Sunset } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { ThemeName } from '../types/theme';
@@ -86,8 +86,6 @@ export default function ThemeSelector() {
           </div>
         </div>
       )}
-
-      {/* Backdrop */}
       {isOpen && (
         <div 
           className="fixed inset-0 z-40" 

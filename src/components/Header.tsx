@@ -1,6 +1,7 @@
 import { Moon, Sun, Droplets, TreePine, Sunset } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import ThemeSelector from './ThemeSelector';
+import { useState } from 'react';
 
 const themeIcons = {
   light: Sun,
@@ -12,6 +13,7 @@ const themeIcons = {
 
 export default function Header() {
   const { currentTheme, themeName } = useTheme();
+  const [activePage, setActivePage] = useState('Home');
   const IconComponent = themeIcons[themeName];
 
   return (
@@ -59,26 +61,35 @@ export default function Header() {
 
           <nav className="hidden md:flex items-center space-x-8">
             {['Home', 'About', 'Features', 'Contact'].map((item) => (
-              <a
+              <button
                 key={item}
-                href="#"
-                className="transition-all duration-300 hover:scale-105 px-3 py-2 rounded-md text-sm font-medium"
+                onClick={() => setActivePage(item)}
+                className={`transition-all duration-300 hover:scale-105 px-3 py-2 rounded-md text-sm font-medium ${
+                  activePage === item ? 'font-bold' : ''
+                }`}
                 style={{ 
-                  color: currentTheme.colors.textSecondary,
+                  color: activePage === item 
+                    ? currentTheme.colors.primary 
+                    : currentTheme.colors.textSecondary,
                   fontFamily: currentTheme.typography.fontFamily,
-                  fontSize: currentTheme.typography.fontSizeBase
+                  fontSize: currentTheme.typography.fontSizeBase,
+                  backgroundColor: activePage === item 
+                    ? currentTheme.colors.surfaceSecondary
+                    : 'transparent'
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.color = currentTheme.colors.primary;
-                  e.currentTarget.style.backgroundColor = currentTheme.colors.surfaceSecondary;
+                  if (activePage !== item) {
+                    e.currentTarget.style.color = currentTheme.colors.primary;
+                  }
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.color = currentTheme.colors.textSecondary;
-                  e.currentTarget.style.backgroundColor = 'transparent';
+                  if (activePage !== item) {
+                    e.currentTarget.style.color = currentTheme.colors.textSecondary;
+                  }
                 }}
               >
                 {item}
-              </a>
+              </button>
             ))}
           </nav>
 
